@@ -22,12 +22,6 @@ from subprocess import PIPE
 from bup.compat import environ, restore_lc_env
 from bup.io import path_msg
 
-if sys.version_info[0] != 2 \
-   and not environ.get(b'BUP_ALLOW_UNEXPECTED_PYTHON_VERSION') == b'true':
-    print('error: bup may crash with python versions other than 2, or eat your data',
-          file=sys.stderr)
-    sys.exit(2)
-
 restore_lc_env()
 
 from bup import compat, path, helpers
